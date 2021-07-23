@@ -1,6 +1,6 @@
 public class Estado {
 	public int semanas;
-	public String nome;
+	public int id;
 	public int[][] infectados;
 	public int[][] recuperados;
 	public int[][] mortos;
@@ -8,18 +8,14 @@ public class Estado {
 	public String[] noticias;
 	public String[] diaVacinacao;
 
-	public Estado(int semanas, int[][] infect, int[][] recup, int[][] mortos, int[][]vacin, String[] news, String[] diaVac) {
-		this.semanas = semanas;
-		this.infectados = infect;
-		this.recuperados = recup;
-		this.mortos = mortos;
-		this.vacinados = vacin;
-		this.noticias = news;
-		this.diaVacinacao = diaVac;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	public Estado(int id) {
+		this.semanas = Database.getSemanas();
+		this.infectados = Database.getInfectados(id);
+		this.recuperados = Database.getRecuperados(id);
+		this.mortos = Database.getMortos(id);
+		this.vacinados = Database.getVacinados(id);
+		this.noticias = Database.getNoticias(id);
+		this.diaVacinacao = Database.getDiaVacinacao(id);
 	}
 
 	public void plot_infectados() {
