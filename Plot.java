@@ -46,7 +46,7 @@ public class Plot {
 	
 	
 	// Construtor caso nao seja passado o parametro X
-	public static void plotChart(String title, String legenda, double y_data[]){
+	private static void plotChart(String title, String legenda, double y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
 		double[] x_data = new double[array_size];  
@@ -58,7 +58,7 @@ public class Plot {
 	}
 	
 	// Construtor caso sejam passados inteiros
-	public static void plotChart(String title, String legenda, int x_data[], int y_data[]){
+	private static void plotChart(String title, String legenda, int x_data[], int y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
 		double[] dy_data = new double[array_size];
@@ -73,7 +73,7 @@ public class Plot {
 	}
 	
 	// Construtor caso seja passado apenas o Y inteiro
-	public static void plotChart(String title, String legenda, int y_data[]){
+	private static void plotChart(String title, String legenda, int y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
 		double[] dy_data = new double[array_size];
