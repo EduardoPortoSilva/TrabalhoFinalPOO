@@ -70,6 +70,6 @@ public class Estado {
 
 	//Método para a impressão da data de vacinação estimada
 	public void print_data(int grupo){
-		System.out.println("Uma vez no grupo " + grupo + " vocẽ pode se vacinar dia " + this.diaVacinacao[grupo - 1]);
+		System.out.println("Uma vez no grupo " + grupo + " vocẽ pode se vacinar dia " + this.diaVacinacao[grupo]);
 	}
 }
