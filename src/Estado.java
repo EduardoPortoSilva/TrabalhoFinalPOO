@@ -1,47 +1,48 @@
 public class Estado {
-	public int semanas;
+	public int dias;
 	public int id;
-	public int[][] infectados;
-	public int[][] recuperados;
-	public int[][] mortos;
-	public int[][] vacinados;
+	public int[] infectados;
+	public int[] recuperados;
+	public int[] mortos;
+	public int[] vacinados;
+	public int[] diaVacinacao;
 	public String[] noticias;
-	public String[] diaVacinacao;
+	Database database = new Database();
 
 	public Estado(int id) {
-		this.semanas = Database.getSemanas();
-		this.infectados = Database.getInfectados(id);
-		this.recuperados = Database.getRecuperados(id);
-		this.mortos = Database.getMortos(id);
-		this.vacinados = Database.getVacinados(id);
-		this.noticias = Database.getNoticias(id);
-		this.diaVacinacao = Database.getDiaVacinacao(id);
+		this.dias = database.getDias();
+		this.infectados = database.getInfectados(id, this.dias);
+		this.recuperados = database.getRecuperados(id, this.dias);
+		this.mortos = database.getMortos(id, this.dias);
+		this.vacinados = database.getVacinados(id, this.dias);
+		this.noticias = database.getNews(id);
+		this.diaVacinacao = database.getDataVacina(id);
 	}
 
 	public void plot_infectados() {
 		String title = "Número de Infectados";
-		String[] legenda = new String[] {"Gráfico", "referente", "à", "progressão", "do", "número", "de", "infectados", "em", this.nome, "nas", String.valueOf(this.semanas)};
+		String legenda = "Gráfico referente à progressão do número de infectados nos últimos" + String.valueOf(this.dias);
 
 		Plot.plotChart(title, legenda, this.infectados);
 	}
 
 	public void plot_recuperados() {
-		String title = "Número de Infectados";
-		String[] legenda = new String[] {"Gráfico", "referente", "à", "progressão", "do", "número", "de", "recuperados", "em", this.nome, "nas", String.valueOf(this.semanas)};
+		String title = "Número de Recuperados";
+		String legenda = "Gráfico referente à progressão do número de recuperados nos últimos" + String.valueOf(this.dias);
 
 		Plot.plotChart(title, legenda, this.recuperados);
 	}
 
 	public void plot_mortos() {
-		String title = "Número de Infectados";
-		String[] legenda = new String[] {"Gráfico", "referente", "à", "progressão", "do", "número", "de", "mortos", "em", this.nome, "nas", String.valueOf(this.semanas)};
+		String title = "Número de Mortos";
+		String legenda = "Gráfico referente à progressão do número de mortos nos últimos" + String.valueOf(this.dias);
 
 		Plot.plotChart(title, legenda, this.mortos);
 	}
 
 	public void plot_vacinados() {
-		String title = "Número de Infectados";
-		String[] legenda = new String[] {"Gráfico", "referente", "à", "progressão", "do", "número", "de", "vacinados", "em", this.nome, "nas", String.valueOf(this.semanas)};
+		String title = "Número de Vacinados";
+		String legenda = "Gráfico referente à progressão do número de vacinados nos últimos" + String.valueOf(this.dias);
 
 		Plot.plotChart(title, legenda, this.vacinados);
 	}
