@@ -3,24 +3,31 @@ import org.knowm.xchart.XYChart;
 import org.knowm.xchart.XYChartBuilder;
 import org.knowm.xchart.XYSeries.XYSeriesRenderStyle;
 
+// Classe Plot contem todos os metodos responsaveis por fazer os graficos
 public class Plot {
 	private static int width = 600;
 	private static int height = 500;
 	private static String type;
+	
 	
 	public Plot(int graph_width, int graph_height) {
 		width = graph_width;
 		height = graph_height;
 	}
 	
+	// Altera a largura do grafico
 	public static void setWidth(int graph_width) {
 		width = graph_width;
 	}
 	
+	// Altera a altura do grafico
 	public static void setHeight(int graph_height) {
 		height = graph_height;
 	}
 	
+	// Funcao que ira plotar o grafico baseado no que foi solicitado
+	// Como plotar o grafico segue sempre as mesmas instrucoes, ela sera o construtor geral
+	// Qualquer alteracao minima necessaria sera feita em outras funcoes
 	private static void plotChart(String title, String legenda, double x_data[], double y_data[]) {
 			// Create Chart
 			XYChart chart = new XYChartBuilder().width(width).height(height).title(title).xAxisTitle("X").yAxisTitle("Y").build();
@@ -36,7 +43,9 @@ public class Plot {
 			new SwingWrapper(chart).displayChart();
 		
 	}
-
+	
+	
+	// Construtor caso nao seja passado o parametro X
 	public static void plotChart(String title, String legenda, double y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
@@ -47,6 +56,8 @@ public class Plot {
 		Plot.plotChart(title, legenda, x_data, y_data);
 		
 	}
+	
+	// Construtor caso sejam passados inteiros
 	public static void plotChart(String title, String legenda, int x_data[], int y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
@@ -61,6 +72,7 @@ public class Plot {
 		
 	}
 	
+	// Construtor caso seja passado apenas o Y inteiro
 	public static void plotChart(String title, String legenda, int y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
@@ -74,11 +86,15 @@ public class Plot {
 		
 	}
 	
+	//			PLOT LINEAR
+	// Plota um grafico linear usando o modelo geral feito no plotChart
+	
 	public static void plotLinearChart(String title, String legenda, double x_data[], double y_data[]){
 		// Create Chart
 		type = "Linear";
 		Plot.plotChart(title, legenda, x_data, y_data);
 	}
+
 
 	public static void plotLinearChart(String title, String legenda, double y_data[]){
 		// Create Chart
@@ -93,11 +109,16 @@ public class Plot {
 		
 	}
 	
+
 	public static void plotLinearChart(String title, String legenda, int y_data[]){
 		// Create Chart
 		type = "Linear";
 		Plot.plotChart(title, legenda, y_data);
 	}
+	
+	
+	//	PLOT SCATTER
+	// Plota um grafico de dispersao usando o modelo geral feito no plotChart
 	
 	public static void plotScatterChart(String title, String legenda, double x_data[], double y_data[]) {
 		// Create Chart
@@ -122,6 +143,12 @@ public class Plot {
 		type = "Scatter";
 		Plot.plotChart(title, legenda, y_data);
 	}
+	
+	
+	
+	//	PLOT AREA
+	// Plota um grafico de area usando o modelo geral feito no plotChart
+	
 	
 	public static void plotAreaChart(String title, String legenda, double x_data[], double y_data[]) {
 		// Create Chart
