@@ -21,12 +21,11 @@ public class Plot {
 		height = graph_height;
 	}
 	
-	private static void plotChart(String title, String legenda[], double x_data[][], double y_data[][]) {
+	private static void plotChart(String title, String legenda, double x_data[], double y_data[]) {
 			// Create Chart
 			XYChart chart = new XYChartBuilder().width(width).height(height).title(title).xAxisTitle("X").yAxisTitle("Y").build();
-			for(int i = 0; i < x_data.length; i++) {
-				chart.addSeries(legenda[i], x_data[i], y_data[i]);
-			}
+			chart.addSeries(legenda, x_data, y_data);
+	
 			if(type.equals("Linear"))
 				chart.getStyler().setDefaultSeriesRenderStyle(XYSeriesRenderStyle.Line);
 			else if(type.equals("Scatter"))
@@ -38,117 +37,112 @@ public class Plot {
 		
 	}
 
-	public static void plotChart(String title, String legenda[], double y_data[][]){
+	public static void plotChart(String title, String legenda, double y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
-		double[][] x_data = new double[array_size][array_size];  
+		double[] x_data = new double[array_size];  
 		for(int i = 0; i < array_size; i++) {
-			for(int j = 0; j < array_size; j++)
-				x_data[i][j] = (double)(j+1);
+			x_data[i] = (double)(i+1);
 		}
 		Plot.plotChart(title, legenda, x_data, y_data);
 		
 	}
-	public static void plotChart(String title, String legenda[], int x_data[][], int y_data[][]){
+	public static void plotChart(String title, String legenda, int x_data[], int y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
-		double[][] dy_data = new double[array_size][array_size];
-		double[][] dx_data = new double[array_size][array_size];  
+		double[] dy_data = new double[array_size];
+		double[] dx_data = new double[array_size];  
 		for(int i = 0; i < array_size; i++) {
-			for(int j = 0; j < array_size; j++) {
-				dx_data[i][j] = (double)x_data[i][j];
-				dy_data[i][j] = (double)y_data[i][j];
-			}
+			dx_data[i] = (double)x_data[i];
+			dy_data[i] = (double)y_data[i];
 	
 		}
-		Plot.plotLinearChart(title, legenda, dx_data, dy_data);
+		Plot.plotChart(title, legenda, dx_data, dy_data);
 		
 	}
 	
-	public static void plotChart(String title, String legenda[], int y_data[][]){
+	public static void plotChart(String title, String legenda, int y_data[]){
 		// Create Chart
 		int array_size = y_data.length;
-		double[][] dy_data = new double[array_size][array_size];
-		double[][] x_data = new double[array_size][array_size];  
+		double[] dy_data = new double[array_size];
+		double[] x_data = new double[array_size];  
 		for(int i = 0; i < array_size; i++) {
-			for(int j = 0; j < array_size; j++) {
-				x_data[i][j] = (double)(j+1);
-				dy_data[i][j] = (double)y_data[i][j];
-			}
-	
+			x_data[i] = (double)(i+1);
+			dy_data[i] = (double)y_data[i];
 		}
 		Plot.plotChart(title, legenda, x_data, dy_data);
 		
 	}
-	public static void plotLinearChart(String title, String legenda[], double x_data[][], double y_data[][]){
+	
+	public static void plotLinearChart(String title, String legenda, double x_data[], double y_data[]){
 		// Create Chart
 		type = "Linear";
 		Plot.plotChart(title, legenda, x_data, y_data);
 	}
 
-	public static void plotLinearChart(String title, String legenda[], double y_data[][]){
+	public static void plotLinearChart(String title, String legenda, double y_data[]){
 		// Create Chart
 		type = "Linear";
 		Plot.plotChart(title, legenda, y_data);
 	}
 	
-	public static void plotLinearChart(String title, String legenda[], int x_data[][], int y_data[][]){
+	public static void plotLinearChart(String title, String legenda, int x_data[], int y_data[]){
 		// Create Chart
 		type = "Linear";
 		Plot.plotChart(title, legenda, x_data, y_data);
 		
 	}
 	
-	public static void plotLinearChart(String title, String legenda[], int y_data[][]){
+	public static void plotLinearChart(String title, String legenda, int y_data[]){
 		// Create Chart
 		type = "Linear";
 		Plot.plotChart(title, legenda, y_data);
 	}
 	
-	public static void plotScatterChart(String title, String legenda[], double x_data[][], double y_data[][]) {
+	public static void plotScatterChart(String title, String legenda, double x_data[], double y_data[]) {
 		// Create Chart
 		type = "Scatter";
 		Plot.plotChart(title, legenda, x_data, y_data);
 	}
 	
-	public static void plotScatterChart(String title, String legenda[], double y_data[][]) {
+	public static void plotScatterChart(String title, String legenda, double y_data[]) {
 		type = "Scatter";
 		// Show it
 		Plot.plotChart(title, legenda, y_data);
 	}
 	
-	public static void plotScatterChart(String title, String legenda[], int x_data[][], int y_data[][]){
+	public static void plotScatterChart(String title, String legenda, int x_data[], int y_data[]){
 		// Create Chart
 		type = "Scatter";
 		Plot.plotChart(title, legenda, x_data, y_data);
 		
 	}
 	
-	public static void plotScatterChart(String title, String legenda[], int y_data[][]){
+	public static void plotScatterChart(String title, String legenda, int y_data[]){
 		type = "Scatter";
 		Plot.plotChart(title, legenda, y_data);
 	}
 	
-	public static void plotAreaChart(String title, String legenda[], double x_data[][], double y_data[][]) {
+	public static void plotAreaChart(String title, String legenda, double x_data[], double y_data[]) {
 		// Create Chart
 		type = "Area";
 		Plot.plotChart(title, legenda, x_data, y_data);
 	}
 	
-	public static void plotAreaChart(String title, String legenda[], double y_data[][]) {
+	public static void plotAreaChart(String title, String legenda, double y_data[]) {
 		type = "Area";
 		// Show it
 		Plot.plotChart(title, legenda, y_data);
 	}
 	
-	public static void plotAreaChart(String title, String legenda[], int x_data[][], int y_data[][]){
+	public static void plotAreaChart(String title, String legenda, int x_data[], int y_data[]){
 		// Create Chart
 		type = "Area";
 		Plot.plotChart(title, legenda, x_data, y_data);
 		
 	}
 	
-	public static void plotAreaChart(String title, String legenda[], int y_data[][]){
+	public static void plotAreaChart(String title, String legenda, int y_data[]){
 		type = "Area";
 		Plot.plotChart(title, legenda, y_data);
 	}
