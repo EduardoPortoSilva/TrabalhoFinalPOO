@@ -14,6 +14,7 @@ import poo.grupo27.trabalhofinalpoo.gerenciadorGui.PanelController;
 /**
  * Frame responsavel pela parte principal do programa
  */
+@SuppressWarnings("serial")
 public class MainFrame extends javax.swing.JFrame {
     private CardLayout cl;
     private PanelController controller;
@@ -45,7 +46,6 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

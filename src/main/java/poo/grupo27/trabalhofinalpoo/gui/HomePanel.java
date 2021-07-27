@@ -7,6 +7,7 @@ import poo.grupo27.trabalhofinalpoo.gerenciadorGui.State;
 /**
  * Classe responsavel pelo Card menu principal
  */
+@SuppressWarnings("serial")
 public class HomePanel extends javax.swing.JPanel {
     
     PanelController controller;
@@ -20,7 +21,6 @@ public class HomePanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

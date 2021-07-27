@@ -35,7 +35,7 @@ public class PanelController {
         graph = new GraficosPanel(this, estados);
         faq = new FAQPanel( new ArrayList<>(Arrays.asList(perguntas)),  new ArrayList<>(Arrays.asList(respostas)));
         //Adiciona todos em uma ArrayList
-        ArrayList<JPanel> array = new ArrayList();
+        ArrayList<JPanel> array = new ArrayList<JPanel>();
         array.add(home);
         array.add(data);
         array.add(info);

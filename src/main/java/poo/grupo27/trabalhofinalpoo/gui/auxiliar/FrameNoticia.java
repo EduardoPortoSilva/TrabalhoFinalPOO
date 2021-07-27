@@ -3,6 +3,7 @@ package poo.grupo27.trabalhofinalpoo.gui.auxiliar;
 /**
  * Uma janela para mostrar as noticias
  */
+@SuppressWarnings("serial")
 public class FrameNoticia extends javax.swing.JFrame {
 
     /**
@@ -14,7 +15,6 @@ public class FrameNoticia extends javax.swing.JFrame {
         lbl.setText(body);
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

@@ -10,6 +10,7 @@ import java.awt.Dimension;
 /**
  * Representa um botão com uma label integrada
  */
+@SuppressWarnings("serial")
 public class ButtonExpansible extends javax.swing.JPanel {
 
     
@@ -37,7 +38,6 @@ public class ButtonExpansible extends javax.swing.JPanel {
         });
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

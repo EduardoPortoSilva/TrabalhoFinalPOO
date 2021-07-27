@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Classe responsavel pelo Card sobre os cuidados com relação a COVID-19
  */
+@SuppressWarnings("serial")
 public class CuidadosPanel extends javax.swing.JPanel {
     
     /**
@@ -19,7 +20,6 @@ public class CuidadosPanel extends javax.swing.JPanel {
     /**
      * Inicia todos os componentes visuais
      */
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

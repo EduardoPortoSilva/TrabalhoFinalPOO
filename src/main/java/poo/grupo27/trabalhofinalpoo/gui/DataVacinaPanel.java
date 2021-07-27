@@ -2,7 +2,7 @@ package poo.grupo27.trabalhofinalpoo.gui;
 
 import external.Estado;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 /**
  * Classe responsavel pelo Card sobre a data de vacinação
  */
+@SuppressWarnings("serial")
 public class DataVacinaPanel extends javax.swing.JPanel {
     
     private ArrayList<JCheckBox> checkBoxes;
@@ -26,7 +27,6 @@ public class DataVacinaPanel extends javax.swing.JPanel {
         mudaEstado(estado);
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -152,9 +152,3 @@ public class DataVacinaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel panelComorbidades;
     // End of variables declaration//GEN-END:variables
 }
-/*jCheckBox1.setText("jCheckBox1");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });*/

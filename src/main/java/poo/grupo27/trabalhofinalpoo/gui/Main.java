@@ -59,6 +59,6 @@ public class Main {
         for(int i = 0; i <= 26; i++) {
                 estado[i] = new Estado(i);
         }
-        PanelController pc = new PanelController(comorbidades,cuidados,perguntas,respostas, new Database(), estado);
+        new PanelController(comorbidades,cuidados,perguntas,respostas, new Database(), estado);
     }
 }

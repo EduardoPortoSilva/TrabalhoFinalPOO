@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 /**
  * Classe usada para criar um botão de noticias
  */
+@SuppressWarnings("serial")
 public class ButtonNoticia extends javax.swing.JPanel {
 
     /**
@@ -39,7 +40,6 @@ public class ButtonNoticia extends javax.swing.JPanel {
         return out;
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

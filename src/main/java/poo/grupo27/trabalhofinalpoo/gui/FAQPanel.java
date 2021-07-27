@@ -6,6 +6,7 @@ import poo.grupo27.trabalhofinalpoo.gui.auxiliar.ButtonExpansible;
 /**
  * Classe responsavel pelo Card de perguntas frequentes
  */
+@SuppressWarnings("serial")
 public class FAQPanel extends javax.swing.JPanel {
     
     /**
@@ -18,7 +19,6 @@ public class FAQPanel extends javax.swing.JPanel {
         populaBtn(perguntas, respostas);
     }
     
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

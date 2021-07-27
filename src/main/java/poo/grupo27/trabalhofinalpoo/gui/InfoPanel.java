@@ -7,6 +7,7 @@ import poo.grupo27.trabalhofinalpoo.gui.auxiliar.ButtonNoticia;
 /**
  * Classe responsavel pelo Card de informações
  */
+@SuppressWarnings("serial")
 public class InfoPanel extends javax.swing.JPanel {
     
     /**
@@ -18,7 +19,7 @@ public class InfoPanel extends javax.swing.JPanel {
         initComponents();
         populaNoticias(titulos, noticias);
     }
-    @SuppressWarnings("unchecked")
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -56,11 +57,3 @@ public class InfoPanel extends javax.swing.JPanel {
     private javax.swing.JPanel panelBtnNoticias;
     // End of variables declaration//GEN-END:variables
 }
-
-
-/*JLabel temp;
-for(int i = 0; i < noticias.size(); i++){
-    add(temp = new JLabel(noticias.get(i)));
-    temp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-}
-*/
