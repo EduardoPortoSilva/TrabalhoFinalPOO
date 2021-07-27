@@ -55,7 +55,7 @@ public class Estado {
 			System.out.println(i + ")" + this.noticias[i] + "\n");
 	}
 
-	public void print_data(int grupo){
-		System.out.println("Uma vez no grupo " + grupo + " vocẽ pode se vacinar dia " + this.diaVacinacao[grupo - 1]);
+	public String print_data(int grupo){
+		return ("Uma vez no grupo " + grupo + " vocẽ pode se vacinar dia " + this.diaVacinacao[grupo - 1]);
 	}
 }

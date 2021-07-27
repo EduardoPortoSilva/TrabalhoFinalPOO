@@ -26,7 +26,7 @@ public class PanelController {
         database = db;
         main = new MainFrame(this);
         home = new HomePanel(this);
-        data = new DataVacinaPanel(new ArrayList<>(Arrays.asList(comoborbidades)));
+        data = new DataVacinaPanel(new ArrayList<>(Arrays.asList(comoborbidades)), estados[0]);
         String []header = new String[2];
         header[0] = "Vacinas";
         header[1] = "Média Movel";

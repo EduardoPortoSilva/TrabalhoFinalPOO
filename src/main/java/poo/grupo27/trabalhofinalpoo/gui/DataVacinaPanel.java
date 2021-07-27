@@ -1,5 +1,6 @@
 package poo.grupo27.trabalhofinalpoo.gui;
 
+import external.Estado;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -13,14 +14,16 @@ import javax.swing.JOptionPane;
 public class DataVacinaPanel extends javax.swing.JPanel {
     
     private ArrayList<JCheckBox> checkBoxes;
+    private Estado estado;
     
     /**
      * Cria o Painel das datas
      * @param comorbidades A lista de comorbidades
      */
-    public DataVacinaPanel(ArrayList<String> comorbidades) {
+    public DataVacinaPanel(ArrayList<String> comorbidades, Estado estado) {
         initComponents();
         preencheComorbidades(comorbidades);
+        mudaEstado(estado);
     }
 
     @SuppressWarnings("unchecked")
@@ -104,6 +107,10 @@ public class DataVacinaPanel extends javax.swing.JPanel {
         }
     }
     
+    private void mudaEstado(Estado estado){
+        this.estado = estado;
+    }
+    
     /**
      * ActionListener das checkboxes valida as opções e passa para calculaVacina()
      */
@@ -116,7 +123,26 @@ public class DataVacinaPanel extends javax.swing.JPanel {
      * Responsavel pelo calculo da data de vacinação
      */
     private void calculaVacina(){
-        lblResultado.setText("Previsão de vacinação (Primeira Dose) : " );
+        int grupo = 0;
+        int idade = 0;
+        try{
+            idade = Integer.parseInt(fieldIdade.getText());
+        }catch(NumberFormatException ex){
+            idade = 0;
+        }
+        if(idade >= 60 || checkBoxes.get(0).isSelected() || checkBoxes.get(1).isSelected() || checkBoxes.get(2).isSelected()){
+            grupo = 1;
+        }else if(idade >= 40 || checkBoxes.get(3).isSelected() || checkBoxes.get(4).isSelected() || checkBoxes.get(5).isSelected() || checkBoxes.get(6).isSelected()){
+            grupo = 2;
+        }else if(idade >= 30 || checkBoxes.get(7).isSelected() || checkBoxes.get(8).isSelected()){
+            grupo = 3;
+        }else if(idade >= 18){
+            grupo = 4;
+        }else{
+            grupo = 5;
+        }
+        lblResultado.setText(estado.print_data(grupo));
+        //lblResultado.setText("Previsão de vacinação (Primeira Dose) : " );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
