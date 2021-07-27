@@ -28,19 +28,36 @@ public class Database {
 	int[] data_vacina = {11 , 14 , 12 , 15 , 11 , 13 , 13 , 12 , 11 , 13 , 12 , 15 , 12 , 16 , 14 , 16 , 10 , 13 , 12 , 11 , 12 , 12 , 13 , 10 , 10 , 15 , 12};
 	
 	double[] rgmax = {0.0891698 , 0.0100236 , 0.0824476 , 0.0772022 , 0.099731 , 0.0104564 , 0.0108233 , 0.0109778 , 0.010316 , 0.0104008 , 0.0109388 , 0.0101072 ,  0.13 , 0.0103396 , 0.0113194 , 0.0103129 , 0.0102839 , 0.0101686 ,  0.01 , 0.0102478 , 0.0100057 , 0.0102882 , 0.0100829 , 0.0108115 ,  0.012 , 0.010931 , 0.0109757};
-
-	// retorna um vetor com valores fict�cios do n�mero de infectados (acumulado) de um determinado estado para uma quantidade respectiva de dias
-	public int[] getInfectados(int id, int dias){
+	
+	// retorna um vetor com valores fict�cios do n�mero de vacinados (acumulado) de um determinado estado para uma quantidade respectiva de dias
+	public int[] getVacinados(int id, int dias){
 		int[] dados = new int[dias];
 		
-		int ini = infectados_iniciais[id];
+		int ini = vacinados_iniciais[id];
 		
-		double rangeMin = 0.02, rangeMax = rgmax[id];
+		double rangeMin = 0.005, rangeMax = 0.01;
 		
 		for(int i = 0; i < dias; i++) {
 			dados[i] = ini;
 			double randomValue = rangeMin + (rangeMax - rangeMin) * rd.nextDouble();
 			ini = (int)((double)ini*(1.0 + randomValue));
+		}
+		
+		return dados;
+	}
+	
+	// retorna um vetor com valores fict�cios do n�mero de infectados (acumulado) de um determinado estado para uma quantidade respectiva de dias
+	public int[] getInfectados(int id, int dias){
+		int[] dados = new int[dias];
+		Database database = new Database();
+		int ini = infectados_iniciais[id];
+		int[] n_vac = database.getVacinados(id, dias);
+		double rangeMin = 0.02, rangeMax = rgmax[id];
+		
+		for(int i = 0; i < dias; i++) {
+			dados[i] = ini;
+			double randomValue = rangeMin + (rangeMax - rangeMin) * rd.nextDouble();
+			ini = (int)((double)ini*(1.0 + randomValue) - 0.062*n_vac[i]);
 		}
 		
 		return dados;
@@ -52,12 +69,12 @@ public class Database {
 		
 		int ini = mortos_iniciais[id];
 		
-		double rangeMin = 0.01, rangeMax = 0.012;
+		Database database = new Database();
+		int[] n_infec = database.getInfectados(id, dias);
 		
 		for(int i = 0; i < dias; i++) {
 			dados[i] = ini;
-			double randomValue = rangeMin + (rangeMax - rangeMin) * rd.nextDouble();
-			ini = (int)((double)ini*(1.0 + randomValue));
+			ini += (int)(0.1*n_infec[i]);
 		}
 		
 		return dados;
@@ -80,23 +97,7 @@ public class Database {
 		return dados;
 	}
 	
-	// retorna um vetor com valores fict�cios do n�mero de vacinados (acumulado) de um determinado estado para uma quantidade respectiva de dias
-	public int[] getVacinados(int id, int dias){
-		int[] dados = new int[dias];
-		
-		int ini = vacinados_iniciais[id];
-		
-		double rangeMin = 0.005, rangeMax = 0.01;
-		
-		for(int i = 0; i < dias; i++) {
-			dados[i] = ini;
-			double randomValue = rangeMin + (rangeMax - rangeMin) * rd.nextDouble();
-			ini = (int)((double)ini*(1.0 + randomValue));
-		}
-		
-		return dados;
-	}
-	
+
 	// retorna um vetor com valores fict�cios da data de vacina��o para cada respectivo grupo priorit�rio de um determinado estado
 	public int[] getDataVacina(int id) {
 		int[] res = new int[6];
