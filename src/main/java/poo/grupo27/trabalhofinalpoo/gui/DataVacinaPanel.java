@@ -107,7 +107,7 @@ public class DataVacinaPanel extends javax.swing.JPanel {
         }
     }
     
-    private void mudaEstado(Estado estado){
+    public void mudaEstado(Estado estado){
         this.estado = estado;
     }
     

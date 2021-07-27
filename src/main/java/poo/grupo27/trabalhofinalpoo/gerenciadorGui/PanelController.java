@@ -20,7 +20,7 @@ public class PanelController {
     private final FAQPanel faq;
     private final GraficosPanel graph;
     private final Database database;
-    
+    private final Estado[] estados;
     public PanelController(String []comoborbidades, String []cuidados, String []perguntas, String []respostas, Database db, Estado []estados){
         //Cria todos os frames que são usados no programa
         database = db;
@@ -50,7 +50,7 @@ public class PanelController {
         main.setFrame(Cards.MAIN_FRAME);
         //Inicia o visual
         main.setVisible(true);
-        
+        this.estados = estados;
         estado = State.AC;
     }
     
@@ -64,7 +64,7 @@ public class PanelController {
         header[0] = "Vacinas";
         header[1] = "Média Movel";
         info.populaNoticias(new ArrayList<>(Arrays.asList(header)),new ArrayList<>(Arrays.asList(database.getNews(newState.getId()))));
-        
+        data.mudaEstado(estados[newState.getId()]);
     }
     
     public State getState(){
