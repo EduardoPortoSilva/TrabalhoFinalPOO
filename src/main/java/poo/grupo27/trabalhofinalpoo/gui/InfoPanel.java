@@ -41,12 +41,12 @@ public class InfoPanel extends javax.swing.JPanel {
      * @param noticias corpo das noticias
      */
     public void populaNoticias(ArrayList<String> titulos, ArrayList<String> noticias){
+        remove(panelBtnNoticias);
         panelBtnNoticias = new JPanel();
         panelBtnNoticias.setLayout(new javax.swing.BoxLayout(panelBtnNoticias, javax.swing.BoxLayout.PAGE_AXIS));
         for(int i = 0; i < noticias.size(); i++){
             panelBtnNoticias.add(new ButtonNoticia(titulos.get(i),noticias.get(i)));
         }
-        remove(panelBtnNoticias);
         add(panelBtnNoticias, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1920, 600));
         this.validate();
     }
