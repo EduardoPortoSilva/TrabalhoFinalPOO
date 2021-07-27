@@ -24,28 +24,28 @@ public class Estado {
 
 	public void plot_infectados() {
 		String title = "Número de Infectados";
-		String legenda = "Gráfico referente à progressão do número de infectados nos últimos" + String.valueOf(this.dias);
+		String legenda = "Gráfico referente à progressão do número de infectados nos últimos" + String.valueOf(this.dias) + "dias";
 
 		Plot.plotChart(title, legenda, this.infectados);
 	}
 
 	public void plot_recuperados() {
 		String title = "Número de Recuperados";
-		String legenda = "Gráfico referente à progressão do número de recuperados nos últimos" + String.valueOf(this.dias);
+		String legenda = "Gráfico referente à progressão do número de recuperados nos últimos" + String.valueOf(this.dias) + "dias";
 
 		Plot.plotChart(title, legenda, this.recuperados);
 	}
 
 	public void plot_mortos() {
 		String title = "Número de Mortos";
-		String legenda = "Gráfico referente à progressão do número de mortos nos últimos" + String.valueOf(this.dias);
+		String legenda = "Gráfico referente à progressão do número de mortos nos últimos" + String.valueOf(this.dias) + "dias";
 
 		Plot.plotChart(title, legenda, this.mortos);
 	}
 
 	public void plot_vacinados() {
 		String title = "Número de Vacinados";
-		String legenda = "Gráfico referente à progressão do número de vacinados nos últimos" + String.valueOf(this.dias);
+		String legenda = "Gráfico referente à progressão do número de vacinados nos últimos" + String.valueOf(this.dias) + "dias";
 
 		Plot.plotChart(title, legenda, this.vacinados);
 	}
@@ -56,6 +56,6 @@ public class Estado {
 	}
 
 	public String print_data(int grupo){
-		return ("Uma vez no grupo " + grupo + " vocẽ pode se vacinar dia " + this.diaVacinacao[grupo - 1]);
+		return ("Uma vez no grupo " + grupo + " vocẽ pode se vacinar daqui a " + this.diaVacinacao[grupo] + " dias");
 	}
 }
