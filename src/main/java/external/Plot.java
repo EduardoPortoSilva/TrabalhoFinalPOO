@@ -1,9 +1,10 @@
 package external;
-
+import javax.swing.*;
 import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
 import org.knowm.xchart.XYChartBuilder;
 import org.knowm.xchart.XYSeries.XYSeriesRenderStyle;
+import org.knowm.xchart.style.Styler.LegendPosition;
 
 public class Plot {
 	private static int width = 600;
@@ -50,8 +51,7 @@ public class Plot {
 			Thread t = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					new SwingWrapper<XYChart>(chart).displayChart();
-					(chart).displayChart().setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+					new SwingWrapper<XYChart>(chart).displayChart().setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 				}
 			});
 			t.start();	
